@@ -23,21 +23,20 @@ data = []
 
 for track in results['tracks'][:10]:
     data.append({
-         track['name'],
-         track['popularity'],
-         track['duration_ms']
+         "Cancion": track['name'],
+         "Popularidad": track['popularity'],
+         "Duración": track['duration_ms']
     })
 
 
 df = pd.DataFrame(data)
-
-
+df_sorted = df.sort_values(by="Popularidad", ascending=True)
 print(df)
 
 #CREAR SCATTER PLOT, GUARDAR EN VAR SCATTER PLOT
 # RELLENA : scatter_plot = linea que genera la grafica
-grafica= scatter_plot.get_figure()
-grafica.savefig("scatter_plot.png") 
+plt.scatter.get_figure(8,5)
+plt.scatter(df["duracion_ms"], df["popularidad"], color="orange", alpha=0.6)
 
 #CACMBIAR NOMBRE A LAS COLMUMNAS POR NAME CORRESPONDIENTE Y NO COMO 0,1,2
 
